@@ -17,9 +17,11 @@ console.log(risultatoArea);
 const crazySum = function (n1, n2) {
   if (n1 !== n2) {
     return n1 + n2;
-  } else return (n1 + n2) * 3;
+  } else {
+    return (n1 + n2) * 3;
+  }
 };
-const numSum = crazySum(7, 8);
+const numSum = crazySum(8, 8);
 console.log(numSum);
 
 /* ESERCIZIO 3
@@ -30,9 +32,11 @@ console.log(numSum);
 const crazyDiff = function (n1, n2 = 19) {
   if (n1 >= n2) {
     return Math.abs(n1 - n2) * 3;
-  } else return Math.abs(n1 - n2);
+  } else {
+    return Math.abs(n1 - n2);
+  }
 };
-const numDiff = crazyDiff(21);
+const numDiff = crazyDiff(10);
 console.log(numDiff);
 
 /* ESERCIZIO 4
@@ -41,11 +45,11 @@ console.log(numDiff);
 */
 
 const boundary = function (n3) {
-  if (20 >= n3 <= 100) {
+  if ((n3 >= 20 && n3 <= 100) || n3 == 400) {
     return true;
   } else return false;
 };
-const numBoundary = boundary(15);
+const numBoundary = boundary(400);
 console.log(numBoundary);
 
 /* ESERCIZIO 5
@@ -54,12 +58,14 @@ console.log(numBoundary);
  ritornare la stringa originale senza alterarla.
 */
 
-const epify = function (s1 = "alloera") {
-  if (s1 === "EPICODE") {
-    return (s1 = "alloera");
-  } else return (s1 = "EPICODE");
+const epify = function (s1) {
+  if (s1.toUpperCase().startsWith("EPICODE")) {
+    return s1;
+  } else {
+    return "EPICODE" + s1;
+  }
 };
-const stringEpify = epify("Hello Kitty!?");
+const stringEpify = epify("epicodeblabla");
 console.log(stringEpify);
 
 /* ESERCIZIO 6
@@ -68,10 +74,10 @@ console.log(stringEpify);
 */
 
 const check3and7 = function (n1) {
-  if (n1 % 3 == 0) {
-    return (n1 = "Il numero è un multiplo di 3");
+  if (n1 % 3 === 0) {
+    return (n1 = "Il numero è un multiplo di 3 ");
   }
-  if (n1 % 7 == 0) {
+  if (n1 % 7 === 0) {
     return (n1 = "Il numero è un multiplo di 7");
   }
 };
@@ -83,8 +89,15 @@ console.log(numCheck);
 */
 
 const reverseString = function (s1) {
-  return s1.split("").reverse("").join("");
+  const letters = s1.split("");
+  console.log(letters);
+  const reversed = letters.reverse();
+  console.log(reversed);
+  const joined = reversed.join("");
+  console.log(joined);
+  return joined;
 };
+
 const stringReverse = reverseString("EPICODE");
 console.log(stringReverse);
 
@@ -93,17 +106,47 @@ console.log(stringReverse);
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const upperFirst = function (s1) {
+  const stringWords = s1.split(" ");
+  const sentence = [];
+  for (let i = 0; i < stringWords.length; i++) {
+    const singleWord = stringWords[i];
+    const firstChar = singleWord.charAt(0).toUpperCase();
+    const remainChar = singleWord.slice(1);
+    const fullWord = firstChar.concat(remainChar);
+    sentence.push(fullWord);
+  }
+  return sentence.join(" ");
+};
+const stringFirst = upperFirst("hello world my name is alessandro!");
+console.log(stringFirst);
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
  della stringa originale.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const cutString = function (s1) {
+  const stringLetters = s1.split("");
+  console.log(stringLetters);
+  stringLetters.pop();
+  stringLetters.shift();
+  return stringLetters.join("");
+};
+const stringSecond = cutString("!Che bello il tramonto!");
+console.log(stringSecond);
 
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+const giveMeRandom = function (n1) {
+  for (let i = 0; i < n1; i++) {
+    const arrayNum = [Math.floor(Math.random() * 10) + 1];
+
+    const allNum = arrayNum.concat();
+    console.log(allNum);
+  }
+};
+const knownNum = giveMeRandom(10);
+console.log(knownNum);
