@@ -82,7 +82,11 @@ console.log(numCheck);
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
 */
 
-const reverseString = function (s1) {};
+const reverseString = function (s1) {
+  return s1.split("").reverse("").join("");
+};
+const stringReverse = reverseString("EPICODE");
+console.log(stringReverse);
 
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da diverse parole.
